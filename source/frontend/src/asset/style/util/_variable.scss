@@ -1,0 +1,29 @@
+// Fonts
+$fontPrimary: Arial, sans-serif;
+$fontSecondary: Arial, sans-serif;
+
+// Z Index
+$zLayout: default;
+
+// Sizes
+$gridSize: 4rem;
+
+$smallSpacing: $gridSize * 2; // 8rem
+$mediumSpacing: $gridSize * 5; // 20rem
+$largeSpacing: $gridSize * 10; // 40rem
+
+$wrapperWidth: $gridSize * 48; // 192rem;
+
+$gutterWidth: 5rem;
+$mobileGutterWidth: $gutterWidth * 0.5;
+
+// Colors
+$colorWhite: #fff;
+$colorBlack: #000;
+$colorWhiteLight: rgba(255, 255, 255, 0.7);
+
+// $mediaQueries
+@import '../../../data/mediaQueries.json';
+
+// Paths
+$pathComponentImage: 'asset/image';
