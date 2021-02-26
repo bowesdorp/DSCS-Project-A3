@@ -1,0 +1,17 @@
+/* stylelint-disable-next-line block-no-empty */
+.intro {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 4.5rem;
+
+  .heading {
+    color: $colorWhite;
+    margin-bottom: 1.5rem;
+  }
+
+  .copy {
+    color: $colorWhite;
+    margin-bottom: 4rem;
+  }
+}

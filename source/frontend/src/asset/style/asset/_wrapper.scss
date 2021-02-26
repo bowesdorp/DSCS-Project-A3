@@ -58,7 +58,6 @@
   @include respond-to(SMALL) {
     padding-left: $mobileGutterWidth;
     padding-right: $mobileGutterWidth;
-    max-width: $wrapperWidth + ($mobileGutterWidth * 2);
 
     &.hide-on-mobile {
       padding: 0;

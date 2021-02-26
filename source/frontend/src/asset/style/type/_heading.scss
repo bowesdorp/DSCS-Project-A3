@@ -12,5 +12,15 @@
 
 
 @include respond-to(SMALL) {
+  .heading-01 {
+    font: 4rem/5.1rem $fontSecondary;
+  }
 
+  .heading-02 {
+    font: 3.2rem/3rem $fontSecondary;
+  }
+
+  .heading-03 {
+    font: 1.4rem/1.8rem $fontSecondary;
+  }
 }

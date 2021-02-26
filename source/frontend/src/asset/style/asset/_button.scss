@@ -9,4 +9,10 @@
   outline: 0;
 }
 
-//.primary-button {}
+.primary-button {
+  font: 1.6rem/2rem $fontSecondary;
+  padding: 1rem 4.5rem;
+  color: $colorWhite;
+  background: $colorPrimary;
+  border-radius: 10px;
+}

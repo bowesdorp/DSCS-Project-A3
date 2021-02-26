@@ -12,21 +12,21 @@ html {
   -webkit-font-kerning: normal;
   font-kerning: normal;
 
-  @include respond-to(X_LARGE) {
-    font-size: 8.5px;
-  }
-
-  @include respond-to(LARGE) {
-    font-size: 7px;
-  }
-
-  @include respond-to(MEDIUM) {
-    font-size: 6.5px;
-  }
-
-  @include respond-to(SMALL) {
-    font-size: 5px;
-  }
+  //@include respond-to(X_LARGE) {
+  //  font-size: 8.5px;
+  //}
+  //
+  //@include respond-to(LARGE) {
+  //  font-size: 7px;
+  //}
+  //
+  //@include respond-to(MEDIUM) {
+  //  font-size: 10px;
+  //}
+  //
+  //@include respond-to(SMALL) {
+  //  font-size: 10px;
+  //}
 }
 
 *,
