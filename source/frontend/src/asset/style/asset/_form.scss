@@ -1,0 +1,19 @@
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.5rem;
+}
+
+.form-label {
+  font: 1.4rem/1.8rem $fontSecondary;
+  color: $colorBlack;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  border: 0;
+  border-bottom: 1px solid $colorTertiary;
+  font: 1.4rem/1.8rem $fontPrimary;
+  padding: 0.85rem 0;
+  background: $colorWhite;
+}

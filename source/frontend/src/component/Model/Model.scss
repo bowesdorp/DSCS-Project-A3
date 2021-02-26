@@ -1,0 +1,11 @@
+/* stylelint-disable-next-line block-no-empty */
+.model {
+  position: fixed;
+  background: $colorWhite;
+  width: 100%;
+  bottom: 0;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  min-height: 20rem;
+  padding: 3rem 4.5rem 4.5rem;
+}

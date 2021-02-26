@@ -2,6 +2,7 @@ import { AbstractPageTransitionComponent } from 'vue-transition-component';
 import HomePageTransitionController from './HomePageTransitionController';
 import HeroBackground from '../../component/HeroBackground';
 import Intro from '../../component/Intro';
+import Model from '../../component/Model';
 
 // @vue/component
 export default {
@@ -10,6 +11,7 @@ export default {
   components: {
     HeroBackground,
     Intro,
+    Model,
   },
   methods: {
     handleAllComponentsReady() {
