@@ -1,52 +1,16 @@
 .heading-01 {
-  font: 12rem/12.5rem $fontPrimary;
+  font: 4rem/5.1rem $fontSecondary;
 }
 
 .heading-02 {
-  font: 2.5rem/3rem $fontPrimary;
-  font-weight: 700;
+  font: 3.2rem/3rem $fontSecondary;
 }
 
 .heading-03 {
-  font: 1.5rem/1.8rem $fontSecondary;
-  font-weight: bolder;
+  font: 1.4rem/1.8rem $fontSecondary;
 }
 
-.heading-04 {
-  font: 2.2rem/3rem $fontPrimary;
-  font-weight: 700;
-}
-
-.heading-05 {
-  font: 4rem/7rem $fontPrimary;
-  font-weight: 700;
-
-  &.small {
-    font: 3.2rem/5rem $fontPrimary;
-    font-weight: 700;
-  }
-
-  &.extra-small {
-    font: 2.3rem/3rem $fontPrimary;
-    font-weight: 700;
-  }
-}
 
 @include respond-to(SMALL) {
-  .heading-01 {
-    font: 7.5rem/8rem $fontPrimary;
-  }
 
-  .heading-02 {
-    font: 2.8rem/3.3rem $fontPrimary;
-    font-weight: 700;
-  }
-
-  .heading-03 {
-    font: 2rem/2.3rem $fontSecondary;
-  }
-
-  .heading-04 {
-    font: 3.6rem/3.4rem $fontPrimary;
-  }
 }
