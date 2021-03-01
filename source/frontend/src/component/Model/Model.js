@@ -3,6 +3,7 @@ import { TweenLite, TimelineMax, Power4 } from 'gsap';
 import ModelTransitionController from './ModelTransitionController';
 import Step1 from '../Step1';
 import Step2 from '../Step2';
+import Step3 from '../Step3';
 import Paginator from '../Paginator';
 
 
@@ -13,6 +14,7 @@ export default {
   components: {
     Step1,
     Step2,
+    Step3,
     Paginator,
   },
   methods: {

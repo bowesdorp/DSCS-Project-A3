@@ -32,3 +32,66 @@
 .autocomplete-list {
   overflow: scroll;
 }
+
+.checkbox-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  top: -4px;
+  width: 20px;
+  height: 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  border-radius: 2px;
+  transition: 0.3s ease all;
+  opacity: 0;
+
+  &:checked + .checkbox-label:before {
+    background: $colorTertiary;
+    color: $colorWhite;
+  }
+
+  &:checked + .checkbox-label:after {
+    background: $colorWhite;
+    color: $colorTertiary;
+  }
+}
+
+.checkbox-label {
+  width: 100%;
+  display: flex;
+
+  &:before, &:after {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font: 1.6rem/2rem $fontSecondary;
+    padding: .8rem 0;
+    border: 1px solid $colorTertiary;
+    transition: all .3s $easeInOutCubic;
+  }
+
+  &:before {
+    content: 'Yes';
+    background: $colorWhite;
+    color: $colorTertiary;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+
+  &:after {
+    content: 'No';
+    background: $colorTertiary;
+    color: $colorWhite;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}

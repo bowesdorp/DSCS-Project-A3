@@ -9,6 +9,8 @@
   min-height: 20rem;
   padding: 5rem 4.5rem 4.5rem;
   transform: translateY(100%);
+  overflow: scroll;
+  max-height: 100%;
 
   .paginator {
     position: absolute;
@@ -18,10 +20,18 @@
 
   .step1 {
     opacity: 0;
+
+    //TODO DELETE
+    display: none;
   }
 
   .step2 {
     display: none;
     opacity: 0;
+  }
+
+  .step3 {
+    //display: none;
+    //opacity: 0;
   }
 }

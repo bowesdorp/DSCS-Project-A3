@@ -1,0 +1,17 @@
+/* stylelint-disable-next-line block-no-empty */
+.step3 {
+  .heading {
+    margin-bottom: 5rem;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: calc(50% - 2rem);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
