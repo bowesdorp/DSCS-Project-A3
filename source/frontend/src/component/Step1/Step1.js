@@ -10,5 +10,11 @@ export default {
       this.transitionController = new Step1TransitionController(this);
       this.isReady();
     },
+    next() {
+      this.$emit('next');
+    },
+    prev() {
+      this.$emit('prev');
+    }
   },
 };

@@ -16,7 +16,7 @@
       </div>
 
       <div :class="$style.buttonWrapper">
-        <button :class="['button primary-button light', $style.button]">
+        <button :class="['button primary-button light', $style.button]" @click="prev">
           Previous
         </button>
         <button :class="['button primary-button', $style.button]">
