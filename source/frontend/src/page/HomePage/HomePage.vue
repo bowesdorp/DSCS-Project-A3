@@ -6,6 +6,6 @@
   <div :class="[$style.homePage]">
     <HeroBackground />
     <Intro />
-    <Model />
+    <Model ref="model" />
   </div>
 </template>

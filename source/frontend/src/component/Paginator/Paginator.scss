@@ -1,0 +1,24 @@
+/* stylelint-disable-next-line block-no-empty */
+.paginator {
+  display: flex;
+  flex-direction: row;
+
+  .step {
+    display: block;
+    @include size(1.8rem, .3rem);
+    border-radius: 1px;
+    background-color: $colorTint;
+    margin: 0 .5rem;
+    transition: transform .3s $easeInOutCubic, background-color .2s $easeInOutCubic;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.is-active {
+      transform: scaleX(1.33);
+      //width: 2.4rem;
+      background-color: $colorPrimary;
+    }
+  }
+}

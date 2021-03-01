@@ -1,0 +1,26 @@
+/* stylelint-disable-next-line block-no-empty */
+.step2 {
+  .heading {
+    margin-bottom: 5rem;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: calc(50% - 2rem);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px solid $colorTertiary;
+    font: 1.4rem/1.8rem $fontPrimary;
+    padding: 0.85rem 0;
+    background: $colorWhite;
+    width: 100%;
+  }
+}

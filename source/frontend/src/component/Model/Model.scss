@@ -7,5 +7,12 @@
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
   min-height: 20rem;
-  padding: 3rem 4.5rem 4.5rem;
+  padding: 5rem 4.5rem 4.5rem;
+  transform: translateY(100%);
+
+  .paginator {
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+  }
 }

@@ -10,5 +10,9 @@ export default {
       this.transitionController = new IntroTransitionController(this);
       this.isReady();
     },
+    openStep1() {
+      const model = this.$parent.$refs.model;
+      model.openTransition();
+    }
   },
 };

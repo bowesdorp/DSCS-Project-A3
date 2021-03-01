@@ -15,4 +15,8 @@
   color: $colorWhite;
   background: $colorPrimary;
   border-radius: 10px;
+
+  &.light {
+    background: $colorSecondary;
+  }
 }

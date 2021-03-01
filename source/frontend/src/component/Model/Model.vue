@@ -2,7 +2,10 @@
 <script src="./Model.js"></script>
 
 <template>
-  <div :class="[$style.model]">
-    <Step1 />
+  <div :class="[$style.model]" ref="model">
+<!--    <Step1 />-->
+    <Step2 />
+
+    <Paginator :class="$style.paginator" />
   </div>
 </template>

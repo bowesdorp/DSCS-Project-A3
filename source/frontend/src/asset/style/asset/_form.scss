@@ -17,3 +17,18 @@
   padding: 0.85rem 0;
   background: $colorWhite;
 }
+
+.autocomplete-list-item {
+  a {
+    font: 1rem/1.2rem $fontPrimary;
+    color: $colorBlack;
+  }
+
+  .autocomplete-list-item-icon {
+    display: none;
+  }
+}
+
+.autocomplete-list {
+  overflow: scroll;
+}
