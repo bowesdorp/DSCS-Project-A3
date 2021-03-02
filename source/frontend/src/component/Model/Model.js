@@ -51,6 +51,23 @@ export default {
         delay: 0.4,
       })
     },
+    prevStep2() {
+      this.$refs.paginator.previous();
+      this.timeline = new TimelineMax();
+
+      this.timeline.to(this.$refs.step3.$el, 0.5, {
+        opacity: 0,
+        ease: Power4.easeInOut,
+      }).set(this.$refs.step3.$el, {
+        display: 'none',
+      }).set(this.$refs.step2.$el, {
+        display: 'block',
+      }).to(this.$refs.step2.$el, 0.5, {
+        opacity: 1,
+        ease: Power4.easeInOut,
+        delay: 0.4,
+      })
+    },
     nextStep2() {
       this.$refs.paginator.next();
 
@@ -68,5 +85,22 @@ export default {
         delay: 0.4,
       })
     },
+    nextStep3() {
+      this.$refs.paginator.next();
+
+      this.timeline = new TimelineMax();
+      this.timeline.to(this.$refs.step2.$el, 0.5, {
+        opacity: 0,
+        ease: Power4.easeInOut,
+      }).set(this.$refs.step2.$el, {
+        display: 'none',
+      }).set(this.$refs.step3.$el, {
+        display: 'block',
+      }).to(this.$refs.step3.$el, 0.5, {
+        opacity: 1,
+        ease: Power4.easeInOut,
+        delay: 0.4,
+      })
+    }
   },
 };

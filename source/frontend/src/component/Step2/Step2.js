@@ -17,6 +17,9 @@ export default {
     },
     prev() {
       this.$emit('prev');
+    },
+    next() {
+      this.$emit('next');
     }
   },
 };
