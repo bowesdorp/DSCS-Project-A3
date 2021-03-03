@@ -1,0 +1,70 @@
+/* stylelint-disable-next-line block-no-empty */
+.loader {
+  @include size(100vw, 100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $colorTertiary;
+  z-index: 99;
+  opacity: 0;
+
+  .title {
+    position: absolute;
+    left: 50%;
+    bottom: 4rem;
+    text-align: center;
+    color: $colorWhite;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+}
+
+:global {
+  .splash {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .loader {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,0) rotate(90deg);
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      margin-left: -8px;
+      bottom: -170px;
+      width: 3px;
+      background: #fff;
+      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+      height: 200px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      margin-left: 8px;
+      bottom: -190px;
+      width: 3px;
+      background: #000;
+      background: linear-gradient(to bottom, rgba(0,0,0,.2) 0%, rgba(0,0,0,.2) 50%, rgba(0,0,0,0) 100%);
+      height: 200px;
+    }
+  }
+
+  .anim {
+    opacity: 0;
+    transform: translate(-100%,100%);
+    top: 45vh;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    width: 275px;
+  }
+}

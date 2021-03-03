@@ -1,4 +1,75 @@
 /* stylelint-disable-next-line block-no-empty */
 .itinerary {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 
+  .travel-wrapper {
+    margin-top: 4rem;
+  }
+
+  .travel-plan {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+  .travel-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position:relative;
+    padding-bottom: 4rem;
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:before {
+      content: '';
+      @include size(1.5rem);
+      background: $colorWhite;
+      border: 3px solid $colorTertiary;
+      border-radius: 7px;
+      margin-right: 2rem;
+      align-self: flex-start;
+      z-index: 4;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      border-right: 1px dashed rgba(34,136,137,0.20);
+      top: 0;
+      left: 0.74rem;
+      z-index: 3;
+    }
+
+    .item-copy {
+      margin-top: 1rem;
+    }
+
+    .time {
+      background-color: $colorPrimary;
+      border-radius: 10px;
+      min-width: 4rem;
+      color: $colorWhite;
+      text-align: center;
+      padding: .4rem;
+      display: inline-flex;
+      position: absolute;
+      right: 0;
+      align-self: flex-start;
+      justify-self: flex-end;
+      justify-content: center;
+    }
+
+
+  }
 }

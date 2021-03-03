@@ -101,6 +101,9 @@ export default {
         ease: Power4.easeInOut,
         delay: 0.4,
       })
+    },
+    nextFinish() {
+      this.$emit('finish');
     }
   },
 };

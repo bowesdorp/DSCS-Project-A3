@@ -7,3 +7,12 @@
   font: 1rem/1.4rem $fontPrimary;
   display: block;
 }
+
+.copy-03 {
+  font: 1.4rem/1.8rem $fontPrimary;
+  display: block;
+
+  .bold {
+    font-family: $fontSecondary;
+  }
+}

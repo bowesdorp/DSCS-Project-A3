@@ -46,7 +46,7 @@
         <button :class="['button primary-button light', $style.button]" @click="prev">
           Previous
         </button>
-        <button :class="['button primary-button', $style.button]">
+        <button :class="['button primary-button', $style.button]" @click="next">
           Next
         </button>
       </div>

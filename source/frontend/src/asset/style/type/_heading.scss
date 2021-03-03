@@ -10,6 +10,14 @@
   font: 1.4rem/1.8rem $fontSecondary;
 }
 
+.heading-04 {
+  font: 1rem/1.3rem $fontSecondary;
+}
+
+.heading-05 {
+  font: 1.8rem/2.3rem $fontSecondary;
+}
+
 
 @include respond-to(SMALL) {
   .heading-01 {

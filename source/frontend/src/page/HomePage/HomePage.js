@@ -18,5 +18,8 @@ export default {
       this.transitionController = new HomePageTransitionController(this);
       this.isReady();
     },
+    handleFinish() {
+      this.$parent.finish();
+    },
   },
 };

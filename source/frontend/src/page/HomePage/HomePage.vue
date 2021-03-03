@@ -6,6 +6,6 @@
   <div :class="[$style.homePage]">
     <HeroBackground />
     <Intro />
-    <Model ref="model" />
+    <Model ref="model" @finish="handleFinish" />
   </div>
 </template>
