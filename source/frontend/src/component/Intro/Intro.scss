@@ -1,9 +1,10 @@
 /* stylelint-disable-next-line block-no-empty */
 .intro {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: auto;
   bottom: 4.5rem;
+  overflow: hidden;
 
   .heading {
     color: $colorWhite;
