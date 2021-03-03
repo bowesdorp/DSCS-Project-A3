@@ -8,15 +8,14 @@
     <div :class="$style.form">
       <div :class="[$style.formItem, 'form-item']">
         <label for="flightnumber" :class="['form-label']">Find your flight</label>
-        <input type="text" id="flightnumber" :class="['input']" placeholder="Enter your flight number or destination">
+        <p :class="['form-label error']" v-if="hasError">Please fill in a flight number</p>
+        <input type="text" id="flightnumber" :class="['input', {['error']: hasError}]" placeholder="Enter your flight number or destination" v-model="flightNumber" @keypress="handleKeypress">
       </div>
 
       <div :class="[$style.formItem, 'form-item']">
-        <label for="date" :class="['form-label']">Find your flight</label>
-        <select name="cars" id="date" :class="['input']">
-          <option value="22 march 2021">22 March 2021</option>
-          <option value="23 march 2021">23 March 2021</option>
-          <option value="24 march 2021">24 March 2021</option>
+        <label for="date" :class="['form-label']">Select your date</label>
+        <select name="cars" id="date" :class="['input']" v-model="date">
+          <option :value="date.timestamp" v-for="(date, index) in dates" :key="index">{{date.title}}</option>
         </select>
       </div>
       <div>

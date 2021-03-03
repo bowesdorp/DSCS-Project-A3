@@ -8,11 +8,13 @@
     <div :class="$style.form">
       <div :class="[$style.formItem, 'form-item']">
         <label for="address" :class="['form-label']">Find your address</label>
+        <p :class="['form-label error']" v-if="hasError">Please fill in an address</p>
+
         <div v-if="field1" :class="['copy-02']">
           {{field1}}
         </div>
 
-        <place-autocomplete-field id="address" v-model="field1" placeholder="Enter your address and select location" name="field1" api-key="AIzaSyAYWnC8NQ7LgTytkmBzElvJnd4kJFpMMTE"></place-autocomplete-field>
+        <place-autocomplete-field @keydown="handleKeypress" id="address" v-model="field1" placeholder="Enter your address and select location" name="field1" api-key="AIzaSyAYWnC8NQ7LgTytkmBzElvJnd4kJFpMMTE"></place-autocomplete-field>
       </div>
 
       <div :class="$style.buttonWrapper">

@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       field1: '',
+      hasError: false,
     };
   },
   methods: {
@@ -15,11 +16,20 @@ export default {
       this.transitionController = new Step2TransitionController(this);
       this.isReady();
     },
+    handleKeypress() {
+      this.hasError = false;
+    },
+    next() {
+      this.hasError = false;
+
+      if(this.field1 === '') {
+        return this.hasError = true;
+      }
+
+      this.$emit('next');
+    },
     prev() {
       this.$emit('prev');
     },
-    next() {
-      this.$emit('next');
-    }
   },
 };

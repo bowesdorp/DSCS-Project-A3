@@ -5,6 +5,14 @@ import Step3TransitionController from './Step3TransitionController';
 export default {
   name: 'Step3',
   extends: AbstractTransitionComponent,
+  data() {
+    return {
+      checkin: false,
+      baggage: false,
+      priority: false,
+      extraTime: 0,
+    };
+  },
   methods: {
     handleAllComponentsReady() {
       this.transitionController = new Step3TransitionController(this);

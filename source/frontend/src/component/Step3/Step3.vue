@@ -10,7 +10,7 @@
       <div :class="[$style.formItem, 'form-item']">
         <label :class="['form-label']">Check-in at the airport?</label>
         <div :class="['checkbox-wrapper']">
-          <input type="checkbox" class="checkbox" id="checkin">
+          <input type="checkbox" class="checkbox" id="checkin" v-model="checkin">
           <label for="checkin" :class="'checkbox-label'">
           </label>
         </div>
@@ -19,7 +19,7 @@
       <div :class="[$style.formItem, 'form-item']">
         <label :class="['form-label']">Checked baggage?</label>
         <div :class="['checkbox-wrapper']">
-          <input type="checkbox" class="checkbox" id="baggage">
+          <input type="checkbox" class="checkbox" id="baggage" v-model="baggage">
           <label for="baggage" :class="'checkbox-label'">
           </label>
         </div>
@@ -28,7 +28,7 @@
       <div :class="[$style.formItem, 'form-item']">
         <label :class="['form-label']">Do you have a priority ticket?</label>
         <div :class="['checkbox-wrapper']">
-          <input type="checkbox" class="checkbox" id="priority">
+          <input type="checkbox" class="checkbox" id="priority" v-model="priority">
           <label for="priority" :class="'checkbox-label'">
           </label>
         </div>
@@ -36,9 +36,12 @@
 
       <div :class="[$style.formItem, 'form-item']">
         <label for="date" :class="['form-label']">Add extra time at the airport?</label>
-        <select name="cars" id="date" :class="['input']">
-          <option value="22 march 2021">Half hour</option>
-          <option value="23 march 2021">One hour</option>
+        <select name="cars" id="date" :class="['input']" v-model="extraTime">
+          <option value="0">No extra time</option>
+          <option value="0.5">Half hour</option>
+          <option value="1">One hour</option>
+          <option value="1.5">one and a half hours</option>
+          <option value="2">Two hours</option>
         </select>
       </div>
 
