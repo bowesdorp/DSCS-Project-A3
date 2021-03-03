@@ -5,7 +5,12 @@
   <div :class="[$style.itinerary, 'wrapper']">
     <div :class="[$style.modeSelector]">
       <h4 :class="['heading-03', $style.modeHeader]">Transportation mode to the airport</h4>
-      HERE COMES THE SELCTOR
+      <ul :class="$style.selector">
+        <li :class="[$style.item, {[$style.active]: mode === 'car'}, 'heading-04']" @click="selectMode('car')">Car</li>
+        <li :class="[$style.item, {[$style.active]: mode === 'public'}, 'heading-04']" @click="selectMode('public')">Public <br>Transport</li>
+        <li :class="[$style.item, {[$style.active]: mode === 'bike'}, 'heading-04']" @click="selectMode('bike')">Bike</li>
+        <li :class="[$style.item, {[$style.active]: mode === 'walk'}, 'heading-04']" @click="selectMode('walk')">Walk</li>
+      </ul>
     </div>
     <div :class="$style.travelWrapper">
       <h3 :class="[$style.title, 'heading-02']">Your itinerary</h3>

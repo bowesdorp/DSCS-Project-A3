@@ -69,7 +69,47 @@
       justify-self: flex-end;
       justify-content: center;
     }
+  }
 
+  .selector {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 1.6rem;
+  }
 
+  .item {
+    width: calc(100% /4);
+    background: $colorWhite;
+    color: $colorTertiary;
+    text-align: center;
+    border: 1px solid $colorTertiary;
+    border-right: 0;
+    padding: .6rem 0;
+    padding-top: 1.3rem;
+    transition: all .3s $easeInOutCubic;
+
+    &.active {
+      background: $colorTertiary;
+      color: $colorWhite;
+    }
+
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &:nth-child(2) {
+      padding-top: .6rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-right: 1px solid $colorTertiary;
+    }
   }
 }
