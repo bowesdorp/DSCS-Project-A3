@@ -4,6 +4,8 @@
 <template>
   <div :class="[$style.app]">
     <Loader ref="loader" v-if="loaderVisible" />
-    <router-view />
+    <transition @leave="onLeave">
+      <router-view />
+    </transition>
   </div>
 </template>
