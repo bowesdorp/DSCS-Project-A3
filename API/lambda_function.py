@@ -20,7 +20,7 @@ def scraper():
 
     response = br.open("https://www.schiphol.nl/nl/mijn-reisdag/vandaag")
     data = response.get_data()
-    soup = BeautifulSoup(data)
+    soup = BeautifulSoup(data, features="html5lib")
     search_results = soup.findAll(attrs={'class': 'crowdedness'}, limit=2)
 
     if len(search_results) != 2:
