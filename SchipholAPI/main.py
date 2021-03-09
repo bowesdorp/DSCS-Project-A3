@@ -1,7 +1,39 @@
 import dotenv
 import os
 import requests
+import mechanize
+from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+
+
+def scraper():
+    br = mechanize.Browser()
+    br.set_handle_robots(False)
+    br.addheaders = [('User-agent', 'Firefox')]
+
+    response = br.open("https://www.schiphol.nl/nl/mijn-reisdag/vandaag")
+    data = response.get_data()
+    soup = BeautifulSoup(data)
+    search_results = soup.findAll(attrs={'class': 'crowdedness'}, limit=2)
+
+    if len(search_results) != 2:
+        return "No data available", "No data available"
+
+    count = 0
+    for result in search_results:
+        child = result.children
+        if count == 0:
+            departure = str(list(child)[0]).strip()
+            count += 1
+        elif count == 1:
+            arrival = str(list(child)[0]).strip()
+
+    if not departure.__contains__("dag"):
+        departure = "No data available."
+    if not arrival.__contains__("dag"):
+        arrival = "No data available."
+
+    return departure, arrival
 
 
 def fetch_flight_by_code_and_date(fc, d):
@@ -49,27 +81,31 @@ def generate_routes(u_coordinates, a_time):
         try:
             response = requests.request('GET', url)
         except requests.exceptions.ConnectionError as error:
-            print(error)
+            print('err', error)
             response = None
         if response.status_code == 200:
-            route = response.json()["routes"][0]
-            if t != 'transit':
-                duration = int(route["legs"][0]["duration"]["value"])
+            res = response.json()
+            if 'routes' in res and len(res['routes']) > 0:
+                route = res["routes"][0]
+                if t != 'transit':
+                    duration = int(route["legs"][0]["duration"]["value"])
 
-                a_time_string = str(a_time.time())[:5]
-                d_time_string = str((a_time - timedelta(seconds=duration)).time())[:5]
+                    a_time_string = str(a_time.time())[:5]
+                    d_time_string = str((a_time - timedelta(seconds=duration)).time())[:5]
 
-                route["legs"][0]["arrival_time"] = {
-                    "text": a_time_string,
-                    "time_zone": "Europe/Amsterdam"
-                }
+                    route["legs"][0]["arrival_time"] = {
+                        "text": a_time_string,
+                        "time_zone": "Europe/Amsterdam"
+                    }
 
-                route["legs"][0]["departure_time"] = {
-                    "text": d_time_string,
-                    "time_zone": "Europe/Amsterdam"
-                }
+                    route["legs"][0]["departure_time"] = {
+                        "text": d_time_string,
+                        "time_zone": "Europe/Amsterdam"
+                    }
+            else:
+                route = []
         else:
-            route = {}
+            route = []
 
         routes[t] = route
     return routes
@@ -110,8 +146,13 @@ def API(flight_code, date, user_coordinates, mode):
 
     output["flight_info"] = flight_info
 
-    # todo change to schiphol api
-    waiting_time = "00:30:00"
+    airport_status = {
+        "normale dag": "00:30:00",
+        "drukke dag": "00:30:00",
+    }
+    a_status, d_status = scraper()
+
+    waiting_time = airport_status[d_status]
 
     arrival_time = calculate_arrival_time(flight_info, mode, waiting_time)
 
