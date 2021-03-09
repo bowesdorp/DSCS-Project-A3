@@ -137,7 +137,7 @@ def priority_time(i):
 def calculate_arrival_time(f_info, w_time, c_in, b, p, e_time):
     print("Calc arrival time")
 
-    offset = check_in_time(c_in) + baggage_time(b) + priority_time(p) + e_time
+    offset = check_in_time(c_in) + baggage_time(b) + priority_time(p) + int(e_time)
 
     w_time_split = [int(i) for i in w_time.split(":")]
 
