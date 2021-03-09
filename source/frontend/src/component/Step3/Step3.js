@@ -7,7 +7,7 @@ export default {
   extends: AbstractTransitionComponent,
   data() {
     return {
-      checkin: false,
+      checkIn: false,
       baggage: false,
       priority: false,
       extraTime: 0,
@@ -22,7 +22,7 @@ export default {
       this.$emit('prev')
     },
     next() {
-      this.$emit('next')
+      this.$emit('next', {checkIn: this.checkIn, baggage: this.baggage, priority: this.priority, extraTime: this.extraTime})
     }
   },
 };

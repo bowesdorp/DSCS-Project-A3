@@ -32,7 +32,7 @@ const config = {
     [VariableNames.PUBLIC_PATH]: window.webpackPublicPath || process.env.PUBLIC_PATH,
   },
   urls: {
-    [URLNames.API]: `${process.env.PUBLIC_PATH}api/`,
+    [URLNames.API]: `https://v0x71ox2g0.execute-api.eu-central-1.amazonaws.com`,
   },
   properties: {
     [PropertyNames.DEFAULT_LOCALE]: 'en-gb',

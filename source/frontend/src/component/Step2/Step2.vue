@@ -14,7 +14,19 @@
           {{field1}}
         </div>
 
-        <place-autocomplete-field @keydown="handleKeypress" id="address" v-model="field1" placeholder="Enter your address and select location" name="field1" api-key="AIzaSyAYWnC8NQ7LgTytkmBzElvJnd4kJFpMMTE"></place-autocomplete-field>
+        <place-autocomplete-field
+          @keydown="handleKeypress"
+          id="address"
+          v-model="field1"
+          placeholder="Enter your address and select location"
+          name="field1"
+          api-key="AIzaSyAYWnC8NQ7LgTytkmBzElvJnd4kJFpMMTE"
+          v-place-autofill:street.short.query="field1"
+          v-place-autofill:latitude="latitude"
+          v-place-autofill:longitude="longitude"
+        >
+
+        </place-autocomplete-field>
       </div>
 
       <div :class="$style.buttonWrapper">
