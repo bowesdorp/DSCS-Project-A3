@@ -11,6 +11,11 @@ import Paginator from '../Paginator';
 export default {
   name: 'Model',
   extends: AbstractTransitionComponent,
+  data() {
+    return {
+      flight: {},
+    };
+  },
   components: {
     Step1,
     Step2,
@@ -68,8 +73,10 @@ export default {
         delay: 0.4,
       })
     },
-    nextStep2() {
+    nextStep2(data) {
       this.$refs.paginator.next();
+      this.flight.date = data.date;
+      this.flight.flightNumber = data.flightNumber;
 
       this.timeline = new TimelineMax();
       this.timeline.to(this.$refs.step1.$el, 0.5, {
@@ -85,8 +92,10 @@ export default {
         delay: 0.4,
       })
     },
-    nextStep3() {
+    nextStep3(data) {
       this.$refs.paginator.next();
+
+      this.flight.coordinates = data.coordinates;
 
       this.timeline = new TimelineMax();
       this.timeline.to(this.$refs.step2.$el, 0.5, {
@@ -102,8 +111,13 @@ export default {
         delay: 0.4,
       })
     },
-    nextFinish() {
-      this.$emit('finish');
+    nextFinish(data) {
+      this.flight.baggage = data.baggage;
+      this.flight.checkIn = data.checkIn;
+      this.flight.extraTime = data.extraTime;
+      this.flight.priority = data.priority;
+
+      this.$emit('finish', this.flight);
     }
   },
 };

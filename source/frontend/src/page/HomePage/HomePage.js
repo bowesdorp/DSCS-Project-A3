@@ -3,6 +3,7 @@ import HomePageTransitionController from './HomePageTransitionController';
 import HeroBackground from '../../component/HeroBackground';
 import Intro from '../../component/Intro';
 import Model from '../../component/Model';
+import { postFlight } from '../../util/gatewayFormatter';
 
 // @vue/component
 export default {
@@ -18,8 +19,11 @@ export default {
       this.transitionController = new HomePageTransitionController(this);
       this.isReady();
     },
-    handleFinish() {
-      this.$parent.finish();
+    handleFinish(data) {
+      postFlight(data).then((response) => {
+        console.log(response);
+      });
+      // this.$parent.finish();
     },
   },
 };

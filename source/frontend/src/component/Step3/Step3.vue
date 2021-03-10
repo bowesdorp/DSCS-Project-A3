@@ -10,7 +10,7 @@
       <div :class="[$style.formItem, 'form-item']">
         <label :class="['form-label']">Check-in at the airport?</label>
         <div :class="['checkbox-wrapper']">
-          <input type="checkbox" class="checkbox" id="checkin" v-model="checkin">
+          <input type="checkbox" class="checkbox" id="checkin" v-model="checkIn">
           <label for="checkin" :class="'checkbox-label'">
           </label>
         </div>

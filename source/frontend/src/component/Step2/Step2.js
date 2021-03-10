@@ -9,6 +9,8 @@ export default {
     return {
       field1: '',
       hasError: false,
+      latitude: '',
+      longitude: '',
     };
   },
   methods: {
@@ -26,7 +28,9 @@ export default {
         return this.hasError = true;
       }
 
-      this.$emit('next');
+      const coordinates = `${this.latitude},${this.longitude}`;
+
+      this.$emit('next', {coordinates: coordinates});
     },
     prev() {
       this.$emit('prev');
