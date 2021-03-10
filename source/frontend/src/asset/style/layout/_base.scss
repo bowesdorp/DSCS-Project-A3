@@ -12,6 +12,11 @@ html {
   -webkit-font-kerning: normal;
   font-kerning: normal;
 
+
+  body {
+    pointer-events: all !important;
+  }
+
   //@include respond-to(X_LARGE) {
   //  font-size: 8.5px;
   //}

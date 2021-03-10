@@ -30,7 +30,7 @@ export default {
 
       const coordinates = `${this.latitude},${this.longitude}`;
 
-      this.$emit('next', {coordinates: coordinates});
+      this.$emit('next', {coordinates: coordinates, address: this.field1});
     },
     prev() {
       this.$emit('prev');

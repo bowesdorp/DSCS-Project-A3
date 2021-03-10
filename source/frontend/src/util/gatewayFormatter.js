@@ -39,7 +39,7 @@ export const postFlight = (flight) => {
         `${apiUrl}/v1/route?${query}`
       )
       .then((response) => {
-        resolve(response);
+        resolve(response.data);
       })
       .catch(() => {
         reject();

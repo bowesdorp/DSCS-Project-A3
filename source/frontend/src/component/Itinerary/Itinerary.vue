@@ -21,8 +21,8 @@
             <p :class="['copy-03', $style.itemCopy]">
               Leave at: <span :class="'bold'">09:30</span><br><br>
               Travel from: <br>
-              <span :class="'bold'">Downstreet 21 A, Amsterdam</span> <br><br>
-              Travel mode: <span :class="'bold'">Car</span>
+              <span :class="'bold'">{{result.settings.address}}</span> <br><br>
+              Travel mode: <span :class="'bold'">{{mode}}</span>
             </p>
           </div>
           <span :class="['heading-04', $style.time]">09:30</span>
@@ -34,9 +34,10 @@
             <p :class="['copy-03', $style.itemCopy]">
               Arrival time: <span :class="'bold'">10:00</span><br><br>
               Waiting time: <span :class="'bold'">2:00</span> <br><br>
-              Check-in at the airport: <span :class="'bold'">yes</span><br><br>
-              Checked baggage: <span :class="'bold'">yes</span><br><br>
-              Extra lounge time: <span :class="'bold'">0:30</span>
+              Check-in at the airport: <span :class="'bold'">{{transformBoolean(result.settings.checkIn)}}</span><br><br>
+              Checked baggage: <span :class="'bold'">{{transformBoolean(result.settings.baggage)}}</span><br><br>
+              Priority ticket: <span :class="'bold'">{{transformBoolean(result.settings.priority)}}</span><br><br>
+              Extra lounge time: <span :class="'bold'">{{returnExtraTime(result.settings.extraTime)}}</span>
             </p>
           </div>
           <span :class="['heading-04', $style.time]">09:30</span>
@@ -46,22 +47,22 @@
           <div :class="$style.content">
             <h4 :class="['heading-05', $style.itemTitle]">Expected boarding</h4>
             <p :class="['copy-03', $style.itemCopy]">
-              Boaring time: <span :class="'bold'">12:30</span><br><br>
-              Gate: <span :class="'bold'">B21</span>
+              Boaring time: <span :class="'bold'">{{returnBoarding(result.flight_info.data[0].expectedTimeBoarding)}}</span><br><br>
+              Gate: <span :class="'bold'">{{result.flight_info.data[0].gate}}</span>
             </p>
           </div>
-          <span :class="['heading-04', $style.time]">12:30</span>
+          <span :class="['heading-04', $style.time]">{{returnBoarding(result.flight_info.data[0].expectedTimeBoarding)}}</span>
         </li>
 
         <li :class="$style.travelItem">
           <div :class="$style.content">
             <h4 :class="['heading-05', $style.itemTitle]">Departure</h4>
             <p :class="['copy-03', $style.itemCopy]">
-              Departure time: <span :class="'bold'">13:10</span><br><br>
-              Destination: <span :class="'bold'">London Heahrow</span>
+              Departure time: <span :class="'bold'">{{returnBoarding(result.flight_info.data[0].scheduleDateTime)}}</span><br><br>
+              Destination: <span :class="'bold'">{{result.flight_info.data[0].route.destinations[0]}}</span>
             </p>
           </div>
-          <span :class="['heading-04', $style.time]">13:10</span>
+          <span :class="['heading-04', $style.time]">{{returnBoarding(result.flight_info.data[0].scheduleDateTime)}}</span>
         </li>
 
         <li :class="$style.travelItem">
