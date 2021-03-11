@@ -39,6 +39,7 @@ export default {
       return moment.duration(Number(time), "minutes").format("h:mm");
     },
     returnBoarding(time) {
+      if (time === null) return 'Null';
       // 2021-03-10T20:15:00.000+01:00
       return moment(time).format('HH:mm');
     }
