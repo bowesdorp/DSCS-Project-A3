@@ -96,6 +96,7 @@ export default {
       this.$refs.paginator.next();
 
       this.flight.coordinates = data.coordinates;
+      this.flight.address = data.address;
 
       this.timeline = new TimelineMax();
       this.timeline.to(this.$refs.step2.$el, 0.5, {

@@ -25,8 +25,7 @@ export const postFlight = (flight) => {
   const apiUrl = configManager.getURL(URLNames.API);
   const headers = {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:8080',
-    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': '*',
   };
 
   console.log(flight);
@@ -36,13 +35,11 @@ export const postFlight = (flight) => {
 
   return new Promise((resolve, reject) => {
     axios
-      .post(
-        `${apiUrl}/v1/route?${query}`,
-        {},
-        { headers },
+      .get(
+        `${apiUrl}/v1/route?${query}`
       )
       .then((response) => {
-        resolve(response);
+        resolve(response.data);
       })
       .catch(() => {
         reject();

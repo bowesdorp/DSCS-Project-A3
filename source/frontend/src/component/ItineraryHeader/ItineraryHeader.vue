@@ -3,10 +3,10 @@
 
 <template>
   <div :class="[$style.itineraryHeader, 'wrapper']">
-    <h3 :class="['heading-03', $style.flight]">KLM (KL1007)</h3>
+    <h3 :class="['heading-03', $style.flight]">{{result.flight_info.data[0].prefixICAO}} ({{result.flight_info.data[0].flightName}})</h3>
     <h2 :class="['heading-02', $style.title]">
       Flight to <br>
-      London Heathrow
+      {{result.flight_info.data[0].route.destinations[0]}}
     </h2>
   </div>
 </template>

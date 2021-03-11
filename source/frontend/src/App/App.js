@@ -52,17 +52,18 @@ export default {
     setFallback() {
       this.fallbackVisible = window.innerWidth > 767;
     },
-    finish() {
+    startFinish() {
       this.loaderVisible = true;
 
       setTimeout(() => {
         this.$refs.loader.startAnimation().eventCallback("onComplete", () => {
-          this.$router.push({ name: RouteNames.RESULT });
-          this.$refs.loader.finishAnimation().eventCallback("onComplete", () => {
-            this.loaderVisible = false;
-          });
         });
       }, 100);
+    },
+    finish() {
+      this.$refs.loader.finishAnimation().eventCallback("onComplete", () => {
+        this.loaderVisible = false;
+      });
     }
   },
 };

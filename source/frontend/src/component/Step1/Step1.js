@@ -55,6 +55,8 @@ export default {
 
       if(this.flightNumber === '') {
         return this.hasError = true;
+      } else if(!/\b([A-Z]{2}|[A-Z]\d|\d[A-Z])\s?\d{3,4}\b$/.test(this.flightNumber)) {
+        return this.hasError = true;
       }
 
       this.$emit('next', {date: this.date, flightNumber: this.flightNumber});

@@ -4,6 +4,7 @@ import HeroBackground from '../../component/HeroBackground';
 import Intro from '../../component/Intro';
 import Model from '../../component/Model';
 import { postFlight } from '../../util/gatewayFormatter';
+import { RouteNames } from '../../router/routes';
 
 // @vue/component
 export default {
@@ -20,10 +21,12 @@ export default {
       this.isReady();
     },
     handleFinish(data) {
+      this.$parent.startFinish();
       postFlight(data).then((response) => {
-        console.log(response);
+        response.settings = data;
+        this.$router.push({ name: RouteNames.RESULT, params: {result: response }});
+        this.$parent.finish();
       });
-      // this.$parent.finish();
     },
   },
 };
