@@ -35,5 +35,8 @@ export default {
         this.$router.push({ name: RouteNames.HOME });
       }
     },
+    newFlight() {
+      this.$router.push({ name: RouteNames.HOME });
+    },
   },
 };

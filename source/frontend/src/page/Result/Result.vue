@@ -2,9 +2,27 @@
 <script src="./Result.js"></script>
 
 <template>
-  <div :class="[$style.result]" v-if="result">
-    <itinerary-header :result="result" />
-    <itinerary-alert :result="result" />
-    <itinerary :result="result" />
+  <div :class="$style.result">
+    <div :class="[]" v-if="result && !result.code">
+      <itinerary-header :result="result"/>
+      <itinerary-alert :result="result"/>
+      <itinerary :result="result"/>
+    </div>
+
+    <div :class="[$style.error, 'wrapper']" v-else>
+      <h3 :class="['heading-02', $style.heading]">
+        Something went wrong...
+      </h3>
+      <p :class="['copy-03', $style.copy]">
+        Please check your flight number and entered details
+        <br><br>
+        <span v-if="result.message">
+          {{result.message}}
+        </span>
+      </p>
+      <button :class="['button primary-button', $style.button]" @click="newFlight">
+        New flight
+      </button>
+    </div>
   </div>
 </template>
