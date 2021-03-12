@@ -9,7 +9,7 @@
       <itinerary :result="result" :destination="destination" />
 
       <button :class="['button primary-button', $style.btnWrap, $style.button]" @click="newFlight">
-        Make new flightplan
+        Make new travelplan
       </button>
     </div>
 
