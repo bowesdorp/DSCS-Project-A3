@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       mode: 'car',
+      route: {},
     };
   },
   methods: {
@@ -20,10 +21,26 @@ export default {
       this.transitionController = new ItineraryTransitionController(this);
       var momentDurationFormatSetup = require("moment-duration-format");
       momentDurationFormatSetup(moment);
+      this.route = this.result.routes.driving;
       this.isReady();
     },
     selectMode(modus) {
       this.mode = modus;
+
+      switch (modus) {
+        case 'car':
+          this.route = this.result.routes.driving;
+          break;
+        case 'public':
+          this.route = this.result.routes.transit;
+          break;
+        case 'walk':
+          this.route = this.result.routes.walking;
+          break;
+        case 'bike':
+          this.route = this.result.routes.bicycling;
+          break;
+      }
     },
     transformBoolean(boolean) {
       if (boolean === true) {
@@ -42,6 +59,9 @@ export default {
       if (time === null) return 'Null';
       // 2021-03-10T20:15:00.000+01:00
       return moment(time).format('HH:mm');
+    },
+    setRouteTime(time) {
+      return moment(time, 'hh:mm A').format('HH:mm');
     }
   },
 };

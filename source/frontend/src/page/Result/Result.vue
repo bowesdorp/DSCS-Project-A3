@@ -7,6 +7,10 @@
       <itinerary-header :result="result"/>
       <itinerary-alert :result="result"/>
       <itinerary :result="result"/>
+
+      <button :class="['button primary-button', $style.btnWrap, $style.button]" @click="newFlight">
+        Make new flightplan
+      </button>
     </div>
 
     <div :class="[$style.error, 'wrapper']" v-else>
@@ -24,5 +28,7 @@
         New flight
       </button>
     </div>
+
+
   </div>
 </template>
