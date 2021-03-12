@@ -166,17 +166,22 @@ def API(flight_code, date, user_coordinates, check_in, baggage, priority, extra_
     output["flight_info"] = flight_info
 
     airport_status = {
-        "normale dag": "00:30:00",
+        "normale dag": "00:15:00",
         "drukke dag": "00:30:00",
+        "piekdag": "01:00:00",
     }
     a_status, d_status = scraper()
 
-    waiting_time = airport_status[d_status]
+    if d_status in airport_status:
+        waiting_time = airport_status[d_status]
+    else:
+        waiting_time = "00:30:00"
 
     arrival_time = calculate_arrival_time(flight_info, waiting_time, check_in, baggage, priority, extra_time)
 
     routes = generate_routes(user_coordinates, arrival_time)
 
+    output["waiting_time"] = waiting_time
     output["routes"] = routes
 
     return output
