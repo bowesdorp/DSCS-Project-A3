@@ -21,9 +21,10 @@
             <p :class="['copy-03', $style.itemCopy]">
               Leave at: <span :class="'bold'">{{setRouteTime(route.legs[0].departure_time.text)}}</span><br><br>
               Travel from: <br>
-              <span :class="'bold'">{{result.settings.address}}</span> <br><br>
+              <span :class="'bold'">{{route.legs[0].start_address}}</span> <br><br>
               Travel mode: <span :class="'bold'">{{mode}} <span v-if="mode === 'public'">transport</span></span>
             </p>
+            <a @click="openRoute" :class="[$style.routeLink, 'copy-02']">Open the full route</a>
           </div>
           <span :class="['heading-04', $style.time]">{{setRouteTime(route.legs[0].departure_time.text)}}</span>
         </li>
@@ -65,6 +66,21 @@
           <span :class="['heading-04', $style.time]">{{returnBoarding(result.flight_info.data[0].scheduleDateTime)}}</span>
         </li>
       </ul>
+    </div>
+
+    <div :class="$style.routeOverlay" ref="overlay">
+      <div :class="$style.inner" ref="innerOverlay">
+        <span :class="$style.close" @click="closeRoute"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+        <h3 :class="[$style.title, 'heading-02']">Your route</h3>
+        <ul :class="[$style.travelPlan]">
+          <li :class="$style.travelItem" v-for="(item, index) in route.legs[0].steps" :key="index">
+            <div :class="$style.routeContent">
+              <h4 :class="['copy-02', $style.itemTitle]" v-html="item.html_instructions"></h4>
+            </div>
+            <span :class="['heading-04', $style.time]">{{item.duration.text}}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

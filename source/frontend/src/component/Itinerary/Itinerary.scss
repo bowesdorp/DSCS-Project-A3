@@ -33,6 +33,10 @@
     &:before {
       content: '';
       @include size(1.5rem);
+      max-width: 1.5rem;
+      max-height: 1.5rem;
+      min-width: 1.5rem;
+      min-height: 1.5rem;
       background: $colorWhite;
       border: 3px solid $colorTertiary;
       border-radius: 7px;
@@ -110,6 +114,52 @@
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
       border-right: 1px solid $colorTertiary;
+    }
+  }
+
+  .route-link {
+    margin-top: 2rem;
+    color: $colorTertiary;
+    text-decoration: underline;
+  }
+
+  .route-content {
+    max-width: 70%;
+  }
+
+  .route-overlay {
+    opacity: 0;
+    @include size(100vw, 100vh);
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    display: none;
+
+    .close {
+      @include size(3rem);
+      position: absolute;
+      right: 2rem;
+      top: 4rem;
+
+      svg {
+        @include size(100%);
+      }
+    }
+
+    .inner {
+      opacity: 0;
+      width: calc(100vw - 4rem);
+      height: 90vh;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background: $colorWhite;
+      border-radius: 10px;
+      padding: 4rem 2rem;
+      overflow: scroll;
     }
   }
 }

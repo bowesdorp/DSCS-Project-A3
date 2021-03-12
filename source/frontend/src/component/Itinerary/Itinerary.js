@@ -1,6 +1,7 @@
 import { AbstractTransitionComponent } from 'vue-transition-component';
 import VueTypes from 'vue-types';
 import moment from 'moment';
+import { TweenLite, Power4 } from 'gsap';
 import ItineraryTransitionController from './ItineraryTransitionController';
 
 // @vue/component
@@ -41,6 +42,34 @@ export default {
           this.route = this.result.routes.bicycling;
           break;
       }
+    },
+    closeRoute() {
+      TweenLite.to(this.$refs.innerOverlay, 0.4, {
+        autoAlpha: 0,
+        ease: Power4.easeInOut,
+      });
+      TweenLite.to(this.$refs.overlay, 0.3, {
+        autoAlpha: 0,
+        ease: Power4.easeInOut,
+        onComplete: () => {
+          TweenLite.set(this.$refs.overlay, {
+            display: 'none'
+          });
+        }
+      });
+    },
+    openRoute() {
+      TweenLite.set(this.$refs.overlay, {
+        display: 'block'
+      });
+      TweenLite.to(this.$refs.overlay, 0.3, {
+        autoAlpha: 1,
+        ease: Power4.easeInOut,
+      });
+      TweenLite.to(this.$refs.innerOverlay, 0.4, {
+        autoAlpha: 1,
+        ease: Power4.easeInOut,
+      });
     },
     transformBoolean(boolean) {
       if (boolean === true) {
