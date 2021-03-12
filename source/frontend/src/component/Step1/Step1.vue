@@ -9,6 +9,7 @@
       <div :class="[$style.formItem, 'form-item']">
         <label for="flightnumber" :class="['form-label']">Find your flight</label>
         <p :class="['form-label error']" v-if="hasError">Please fill in a flight number</p>
+        <p :class="['form-label error']" v-if="hasErrorWrong">Please enter a correct flight number</p>
         <input type="text" id="flightnumber" pattern="\b([A-Z]{2}|[A-Z]\d|\d[A-Z])\s?\d{3,4}\b" :class="['input', {['error']: hasError}]" placeholder="Enter your flight number or destination" v-model="flightNumber" @keypress="handleKeypress">
       </div>
 

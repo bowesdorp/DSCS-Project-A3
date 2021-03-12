@@ -12,6 +12,7 @@ export default {
       date: '',
       flightNumber: '',
       hasError: false,
+      hasErrorWrong: false,
     };
   },
   created() {
@@ -49,17 +50,24 @@ export default {
     },
     handleKeypress() {
       this.hasError = false;
+      this.hasErrorWrong = false;
     },
     next() {
       this.hasError = false;
+      this.hasErrorWrong = false;
 
       if(this.flightNumber === '') {
         return this.hasError = true;
-      } else if(!/\b([A-Z]{2}|[A-Z]\d|\d[A-Z])\s?\d{3,4}\b$/.test(this.flightNumber)) {
-        return this.hasError = true;
       }
 
-      this.$emit('next', {date: this.date, flightNumber: this.flightNumber});
+      if(!/\b([A-Z]{2}|[A-Z]\d|\d[A-Z])\s?\d{3,4}\b$/.test(this.flightNumber)) {
+        return this.hasErrorWrong = true;
+      }
+
+      const number = this.flightNumber.replace(/\s/g, '');
+      console.log(number);
+
+      this.$emit('next', {date: this.date, flightNumber: number});
     },
     prev() {
       this.$emit('prev');
