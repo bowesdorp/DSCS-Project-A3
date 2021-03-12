@@ -92,6 +92,9 @@ export default {
     },
     setRouteTime(time) {
       return moment(time, 'hh:mm A').format('HH:mm');
+    },
+    waiting(time) {
+      return moment(time, 'hh:mm:ss').format('HH:mm');
     }
   },
 };

@@ -34,7 +34,7 @@
             <h4 :class="['heading-05', $style.itemTitle]">Arrival at the airport</h4>
             <p :class="['copy-03', $style.itemCopy]">
               Arrival time: <span :class="'bold'">{{setRouteTime(route.legs[0].arrival_time.text)}}</span><br><br>
-              Waiting time: <span :class="'bold'">2:00</span> <br><br>
+              Airport waiting time: <span :class="'bold'">{{waiting(result.waiting_time)}}</span> <br><br>
               Check-in at the airport: <span :class="'bold'">{{transformBoolean(result.settings.checkIn)}}</span><br><br>
               Checked baggage: <span :class="'bold'">{{transformBoolean(result.settings.baggage)}}</span><br><br>
               Priority ticket: <span :class="'bold'">{{transformBoolean(result.settings.priority)}}</span><br><br>
