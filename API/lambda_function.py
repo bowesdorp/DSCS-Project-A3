@@ -90,32 +90,30 @@ def generate_routes(u_coordinates, a_time):
         except requests.exceptions.ConnectionError as error:
             print(error)
             response = None
-            if response.status_code == 200:
-                res = response.json()
-                if 'routes' in res and len(res['routes']) > 0:
-                    route = res["routes"][0]
-                    if t != 'transit':
-                        duration = int(route["legs"][0]["duration"]["value"])
+        if response.status_code == 200:
+            res = response.json()
+            if 'routes' in res and len(res['routes']) > 0:
+                route = res["routes"][0]
+                if t != 'transit':
+                    duration = int(route["legs"][0]["duration"]["value"])
+                    a_time_string = str(a_time.time())[:5]
+                    d_time_string = str((a_time - timedelta(seconds=duration)).time())[:5]
+                    route["legs"][0]["arrival_time"] = {
+                        "text": a_time_string,
+                        "time_zone": "Europe/Amsterdam"
+                    }
 
-                        a_time_string = str(a_time.time())[:5]
-                        d_time_string = str((a_time - timedelta(seconds=duration)).time())[:5]
-
-                        route["legs"][0]["arrival_time"] = {
-                            "text": a_time_string,
-                            "time_zone": "Europe/Amsterdam"
-                        }
-
-                        route["legs"][0]["departure_time"] = {
-                            "text": d_time_string,
-                            "time_zone": "Europe/Amsterdam"
-                        }
-                else:
-                    route = []
+                    route["legs"][0]["departure_time"] = {
+                        "text": d_time_string,
+                        "time_zone": "Europe/Amsterdam"
+                    }
             else:
                 route = []
+        else:
+            route = []
 
-            routes[t] = route
-        return routes
+        routes[t] = route
+    return routes
 
 
 def check_in_time(i):
@@ -200,11 +198,7 @@ def lambda_handler(event, context):
     return {
         'statusCode': 200,
         'headers': {
-            "Content-Type" : "application/json",
-            "Access-Control-Allow-Origin" : "*",
-            "Allow" : "GET, OPTIONS, POST",
-            "Access-Control-Allow-Methods" : "GET, OPTIONS, POST",
-            "Access-Control-Allow-Headers" : "*"
+            'Access-Control-Allow-Origin': '*'
         },
         'body': json.dumps(data)
     }
