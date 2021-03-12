@@ -40,7 +40,7 @@
           <option value="0">No extra time</option>
           <option value="30">Half hour</option>
           <option value="60">One hour</option>
-          <option value="90">one and a half hours</option>
+          <option value="90">One and a half hours</option>
           <option value="120">Two hours</option>
         </select>
       </div>
