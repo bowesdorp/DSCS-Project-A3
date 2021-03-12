@@ -1,0 +1,14 @@
+{
+  "LEMD": {
+	"icao": "LEMD",
+	"iata": "MAD",
+	"name": "Madrid Barajas International Airport",
+	"city": "Madrid",
+	"state": "Madrid",
+	"country": "ES",
+	"elevation": 2001,
+	"lat": 40.4936,
+	"lon": -3.56676,
+	"tz": "Europe\/Madrid"
+  }
+}

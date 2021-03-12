@@ -4,9 +4,9 @@
 <template>
   <div :class="$style.result">
     <div :class="[]" v-if="result && !result.code">
-      <itinerary-header :result="result"/>
+      <itinerary-header :result="result" :destination="destination" />
       <itinerary-alert :result="result"/>
-      <itinerary :result="result"/>
+      <itinerary :result="result" :destination="destination" />
 
       <button :class="['button primary-button', $style.btnWrap, $style.button]" @click="newFlight">
         Make new flightplan

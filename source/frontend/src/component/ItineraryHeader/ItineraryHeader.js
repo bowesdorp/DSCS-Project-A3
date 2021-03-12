@@ -8,6 +8,7 @@ export default {
   extends: AbstractTransitionComponent,
   props: {
     result: VueTypes.object.isRequired,
+    destination: VueTypes.object.isRequired,
   },
   methods: {
     handleAllComponentsReady() {

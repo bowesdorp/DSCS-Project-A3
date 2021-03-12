@@ -60,7 +60,7 @@
             <h4 :class="['heading-05', $style.itemTitle]">Departure</h4>
             <p :class="['copy-03', $style.itemCopy]">
               Departure time: <span :class="'bold'">{{returnBoarding(result.flight_info.data[0].scheduleDateTime)}}</span><br><br>
-              Destination: <span :class="'bold'">{{result.flight_info.data[0].route.destinations[0]}}</span>
+              Destination: <span :class="'bold'">{{destination.city}}</span>
             </p>
           </div>
           <span :class="['heading-04', $style.time]">{{returnBoarding(result.flight_info.data[0].scheduleDateTime)}}</span>
