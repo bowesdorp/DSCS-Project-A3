@@ -35,6 +35,12 @@
             <p :class="['copy-03', $style.itemCopy]">
               Arrival time: <span :class="'bold'">{{setRouteTime(route.legs[0].arrival_time.text)}}</span><br><br>
               Airport waiting time: <span :class="'bold'">{{waiting(result.waiting_time)}}</span> <br><br>
+            </p>
+            <div style="background: #F1F1F1; padding: 5px; border-radius: 4px">
+              <p style="font-size: 80%; color: #434343">Sponsored</p>
+              <p>Hungry? Visit Di Lorenzo's in T1 for fresh sandwiches!</p>
+            </div>
+            <p :class="['copy-03', $style.itemCopy]">
               Check-in at the airport: <span :class="'bold'">{{transformBoolean(result.settings.checkIn)}}</span><br><br>
               Checked baggage: <span :class="'bold'">{{transformBoolean(result.settings.baggage)}}</span><br><br>
               Priority ticket: <span :class="'bold'">{{transformBoolean(result.settings.priority)}}</span><br><br>

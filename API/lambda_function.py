@@ -8,11 +8,12 @@ from datetime import datetime, timedelta
 
 
 #
-# dotenv.load_dotenv()
+ dotenv.load_dotenv()
 #
-# PUBLIC_FLIGHT_API_KEY = os.getenv("SCHIPHOL_PUBLIC_FLIGHT_API_KEY")
-# PUBLIC_FLIGHT_APPLICATION_ID = os.getenv("SCHIPHOL_PUBLIC_FLIGHT_APPLICATION_ID")
-# GOOGLE_DIRECTIONS_API_KEY = os.getenv("GOOGLE_DIRECTIONS_API_KEY")
+ PUBLIC_FLIGHT_API_KEY = os.getenv("SCHIPHOL_PUBLIC_FLIGHT_API_KEY")
+ PUBLIC_FLIGHT_APPLICATION_ID = os.getenv("SCHIPHOL_PUBLIC_FLIGHT_APPLICATION_ID")
+ GOOGLE_DIRECTIONS_API_KEY = os.getenv("GOOGLE_DIRECTIONS_API_KEY")
+ 
 def scraper():
     br = mechanize.Browser()
     br.set_handle_robots(False)
@@ -52,8 +53,8 @@ def fetch_flight_by_code_and_date(fc, d):
     headers = {
         'accept': 'application/json',
         'resourceversion': 'v4',
-        'app_id': "726ea51a",
-        'app_key': "acd4b5b3f8eb18443271217288704b4e"
+        'app_id': PUBLIC_FLIGHT_APPLICATION_ID,
+        'app_key': PUBLIC_FLIGHT_API_KEY
     }
 
     try:
@@ -82,7 +83,8 @@ def generate_routes(u_coordinates, a_time):
     for t in transport_modes:
 
         query = "mode=" + t + "&origin=" + u_coordinates + "&destination=" + \
-                schiphol_coordinates + "&arrival_time=" + unix_time + "&key=AIzaSyDVdhab4JbR1irNTNvLHs2PejxHKW0ucFg"
+                schiphol_coordinates + "&arrival_time=" + unix_time + "&key="  + \
+                GOOGLE_DIRECTIONS_API_KEY
 
         url = base_url + query
         try:
